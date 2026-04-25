@@ -61,7 +61,7 @@ func (c *hospitalAClient) SearchPatient(id string) (*PatientResponse, error) {
 
 	switch resp.StatusCode {
 	case http.StatusNotFound:
-		return nil, nil // patient not found in HIS — not an error
+		return nil, nil
 	case http.StatusOK:
 		var patient PatientResponse
 		if err := json.NewDecoder(resp.Body).Decode(&patient); err != nil {
